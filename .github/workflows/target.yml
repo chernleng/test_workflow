@@ -1,0 +1,19 @@
+name: Target
+
+on: 
+  repository_dispatch:
+
+jobs:
+  build:
+    if: github.event.action == 'update-api'
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: 1st run
+      if: github.event.action == 'update-api'
+      run: |
+        echo 1st run successfully triggered!!!
+    - name: 2nd run
+      run: |
+        echo 2nd run successfully triggered!!!
